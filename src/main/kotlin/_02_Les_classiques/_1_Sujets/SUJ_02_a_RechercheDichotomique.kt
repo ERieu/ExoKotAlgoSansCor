@@ -16,9 +16,20 @@ import _10_Demos_et_tests.*
  * @return L'indice de la valeur recherchée, vaut -1 en absence de la valeur.
  */
 fun rechercheDichotomique(cible: Int, list: List<Int>): Int {
-    // A COMPLETER ICI
+    var debut = 0
+    var fin = list.size - 1
 
-    // Absence de la valeur dans la liste :
+    while (debut <= fin) {
+        var milieu = debut + (fin - debut)
+        milieu /= 2
+
+        when {
+            list[milieu] == cible -> return milieu
+            list[milieu] < cible -> debut = milieu + 1
+            else -> fin = milieu - 1
+        }
+    }
+
     return -1
 }
 
